@@ -1,0 +1,42 @@
+﻿<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6">
+            <p><img src="~/Content/Imagenes/mercado-libre-logo-5.png" /></p>
+        </div>
+        <div class="col-md-6">
+            <h1>Examen Mercadolibre</h1>
+            <p class="lead">Un proyecto que detecte si un humano es mutante basándose en su secuencia de ADN</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Nivel 1</h2>
+        <p>Programa (en cualquier lenguaje de programación) que cumpla con el método pedido por Magneto.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Nivel 2</h2>
+        <p>
+            Crear una API REST, hostear esa API en un cloud computing libre (Google App Engine, Amazon AWS, etc), crear el servicio “/mutant/”
+            en donde se pueda detectar si un humano es mutante enviando la secuencia de ADN mediante un HTTP POST con un Json el cual tenga el siguiente formato:
+        </p>
+        <p>
+            POST → /mutant/
+            {
+            “dna”: ["ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"]
+            }
+        </p>
+        <p>
+            En caso de verificar un mutante, debería devolver un HTTP 200-OK, en caso contrario un 403-Forbidden
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Nivel 3</h2>
+        <p>Anexar una base de datos, la cual guarde los ADN’s verificados con la API. </p>
+        <p> 1 registro por ADN.</p>
+        <p>
+            Exponer un servicio extra “/stats” que devuelva un Json con las estadísticas de las
+            verificaciones de ADN: {“count_mutant_dna”:40, “count_human_dna”:100: “ratio”:0.4}
+        </p>
+    </div>
+</div>
