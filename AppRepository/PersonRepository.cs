@@ -53,11 +53,19 @@ namespace AppRepository
         {
             var stats = new Stats();
 
-            stats.human = datos.Count(p => p.isMutant == false);
+            stats.count_human_dna = datos.Count(p => p.isMutant == false);
 
-            stats.mutant = datos.Count(p => p.isMutant == true);
+            stats.count_mutant_dna = datos.Count(p => p.isMutant == true);
 
             return stats;
+        }
+
+        /// <summary>
+        /// Borra todos los datos de la tabla
+        /// </summary>
+        public void DeleteAll()
+        {
+            datos = new List<Person>(); 
         }
     }
 }

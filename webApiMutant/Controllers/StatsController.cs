@@ -27,5 +27,6 @@ namespace webApiMutant.Controllers
         {
             return statServ.getStat();
         }
+
     }
 }

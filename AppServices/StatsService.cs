@@ -22,7 +22,8 @@ namespace AppServices
         public Stats getStat()
         {
             return statR.GetStats();
-           
+
         }
+
     }
 }

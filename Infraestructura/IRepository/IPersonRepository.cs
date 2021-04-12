@@ -15,5 +15,7 @@ namespace Infraestructura.IRepository
 
         Stats GetStats();
 
+        void DeleteAll();
+
     }
 }
