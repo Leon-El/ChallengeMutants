@@ -34,7 +34,18 @@ namespace webApiMutant.Controllers
         public HttpResponseMessage Get()
         {
             throw new ValidationException("Sólo soporta POST");
-            //return Request.CreateResponse(HttpStatusCode.BadRequest, "Sólo soporta POST");
+
+        }
+
+        /// <summary>
+        /// Borra los datos del repositorio
+        /// </summary>
+        /// <returns></returns>
+        [HttpDelete]
+        public IHttpActionResult Delete()
+        {
+            mutantServ.DeleteAll();
+            return Ok("Borrado con exito");
         }
     }
 }

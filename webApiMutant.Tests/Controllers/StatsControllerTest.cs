@@ -45,11 +45,13 @@ namespace webApiMutant.Tests.Controllers
         {
 
             StatsController controller = new StatsController(statServ);
+            MutantController controllerM = new MutantController(mutantServ);
+            controllerM.Delete();
 
             Stats nulas = controller.Get();
 
-            Assert.AreEqual(0, nulas.human);
-            Assert.AreEqual(0, nulas.mutant);
+            Assert.AreEqual(0, nulas.count_human_dna);
+            Assert.AreEqual(0, nulas.count_mutant_dna);
             Assert.AreEqual(0.0m, nulas.ratio);
         }
 
@@ -62,6 +64,8 @@ namespace webApiMutant.Tests.Controllers
             controller.Request = new HttpRequestMessage();
             controller.Request.Properties.Add(HttpPropertyKeys.HttpConfigurationKey,
                                               new HttpConfiguration());
+
+            controller.Delete();
 
             PersonDTO persona = new PersonDTO()
             {
@@ -103,8 +107,8 @@ namespace webApiMutant.Tests.Controllers
 
             Stats stat = controllerS.Get();
 
-            Assert.AreEqual(1, stat.human);
-            Assert.AreEqual(2, stat.mutant);
+            Assert.AreEqual(1, stat.count_human_dna);
+            Assert.AreEqual(2, stat.count_mutant_dna);
             Assert.AreEqual(2.0m, stat.ratio);
 
         }

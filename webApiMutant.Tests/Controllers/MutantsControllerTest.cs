@@ -53,9 +53,22 @@ namespace webApiMutant.Tests.Controllers
                     "TCACTG" }
             };
 
+            PersonDTO persona2 = new PersonDTO()
+            {
+                dna = new List<string>() {
+                    "ATGCGA",
+                    "CAGTGC",
+                    "TTATTT",
+                    "AGACGG",
+                    "GCGTCA",
+                    "AAAAAA" }
+            };
+
             var resp = controller.Mutant(persona);
+            var resp2 = controller.Mutant(persona2);
 
             Assert.AreEqual(HttpStatusCode.Forbidden, resp.StatusCode);
+            Assert.AreEqual(HttpStatusCode.Forbidden, resp2.StatusCode);
         }
 
         [TestMethod]
@@ -67,6 +80,7 @@ namespace webApiMutant.Tests.Controllers
             controller.Request.Properties.Add(HttpPropertyKeys.HttpConfigurationKey,
                                               new HttpConfiguration());
 
+            //ejemplo
             PersonDTO mutante = new PersonDTO()
             {
                 dna = new List<string>() {
@@ -78,9 +92,51 @@ namespace webApiMutant.Tests.Controllers
                     "TCACTG"}
             };
 
+            //dos columnas
+            PersonDTO mutante2Col = new PersonDTO()
+            {
+                dna = new List<string>() {
+                    "ATGCGA",
+                    "ACGTGC",
+                    "ATATGT",
+                    "AGAAGG",
+                    "GCCCTA",
+                    "ACACTG"}
+            };
+
+            //dos filas
+            PersonDTO mutante2Row = new PersonDTO()
+            {
+                dna = new List<string>() {
+                    "TTTTGA",
+                    "ACGTTC",
+                    "ATATGT",
+                    "AGAAGG",
+                    "GCCCCC",
+                    "ACACTG"}
+            };
+
+            //2 diagonales
+            PersonDTO mutante2Diag = new PersonDTO()
+            {
+                dna = new List<string>() {
+                    "TATTGA",
+                    "ACGTTC",
+                    "ATATGT",
+                    "AGTAGG",
+                    "GCCTAC",
+                    "ACACTA"}
+            };
+
             var resp = controller.Mutant(mutante);
+            var resp2col = controller.Mutant(mutante2Col);
+            var resp2row = controller.Mutant(mutante2Row);
+            var resp2diag = controller.Mutant(mutante2Diag);
 
             Assert.AreEqual(HttpStatusCode.OK, resp.StatusCode);
+            Assert.AreEqual(HttpStatusCode.OK, resp2col.StatusCode);
+            Assert.AreEqual(HttpStatusCode.OK, resp2row.StatusCode);
+            Assert.AreEqual(HttpStatusCode.OK, resp2diag.StatusCode);
         }
 
 
