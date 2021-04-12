@@ -22,18 +22,21 @@ _la web se encuenta hosteada en Azure utilizando la version gratuita del servici
 
 _Dentro de la API vamos a encontrar los siguientes endpoint_
 
+###### Validar ADN
 ```
 - ENDPOINT: Mutant
 - URL: http://mutantchallenge.azurewebsites.net/api/Mutant
 - PETICION HTTP: POST
 - RESPUESTA:  Mutant: 200-OK  Human: 403-Forbidden / InvalidDNA: 400-BadRequest
 ```
+###### Borrar todos los datos analizados
 ```
 - ENDPOINT: Mutant
 - URL: http://mutantchallenge.azurewebsites.net/api/Mutant
-- PETICION HTTP: http://mutantchallenge.azurewebsites.net/api/Stats
+- PETICION HTTP: DELETE
 - RESPUESTA: 200-OK 
 ```
+###### Obtener las estadisticas de los datos ingresados
 ```
 - ENDPOINT: Stats
 - URL: http://mutantchallenge.azurewebsites.net/api/Mutant
