@@ -22,11 +22,21 @@ _la web se encuenta hosteada en Azure utilizando la version gratuita del servici
 
 _Dentro de la API vamos a encontrar los siguientes endpoint_
 
-| ENDPOINT  | URL | PETICION HTTP  | RESPUESTA
-| ------ | ------ | ------ | ------ | ------ |
-| Mutant | http://mutantchallenge.azurewebsites.net/api/Mutant | POST | Mutant: 200-OK / Human: 403-Forbidden / InvalidDNA: 400-BadRequest
-| Mutant | http://mutantchallenge.azurewebsites.net/api/Mutant | DELETE | 200-OK
-| Stats | http://mutantchallenge.azurewebsites.net/api/Stats | GET | JSON 
+ENDPOINT: Mutant
+URL: http://mutantchallenge.azurewebsites.net/api/Mutant
+PETICION HTTP: POST
+RESPUESTA:  Mutant: 200-OK  Human: 403-Forbidden / InvalidDNA: 400-BadRequest
+
+ENDPOINT: Mutant
+URL: http://mutantchallenge.azurewebsites.net/api/Mutant
+PETICION HTTP: http://mutantchallenge.azurewebsites.net/api/Stats
+RESPUESTA:  Mutant: 200-OK 
+
+ENDPOINT: Stats
+URL: http://mutantchallenge.azurewebsites.net/api/Mutant
+PETICION HTTP: GET
+RESPUESTA:  Mutant: 200-OK JSON
+
 
 ### Ejemplos 🔩
 
