@@ -5,28 +5,48 @@ _Proyecto API-REST solicitado por Magneto para poder detectar si el ADN una pers
 ## Notas: 🚀
 
 _En el desarollo de la APP se utilizaron variables para metrizadas en el archivo config de la app, también podrían haber sido pustos en una BD de parámetros_
+
 _Estos valores parametrizados sirven para que la app pueda variar en tamaño de cadena de ADN (MAX_DNA_ARRAY), cambiar los caracteres aceptados en la cadena (VALID_DNA),  cantidad de veces que se tiene que repetir un caracter para ser mutante (MAX_SEQUENCE) y por último la cantidad de cadenas válidas a encontrar para ser mutante (MIN_MATCHES)._
-_En AppRepository se utilizaron las entidades en memoria, esto normalmente lo utilizo para los test unitarios, para pupular con datos efímeros que desaparecen al finalizar el test. Esto también es útil a la hora de publicar y testear la app en la nube. Además al implementar inyección de dependencias está listo para implementar las interfaces con otro proyecto dentro de la solución que utilice un ORM (por ej. Entity Framework) y reemplazarlo_
-_La lógica de negocio esta implementada en el proyecto de AppServices_
-_El proyecto Infrestructura se encuentran modeladas las entidades de dominio, excepciones, y las interfaces tanto de los repositorios como de los services_
+
+_En AppRepository se utilizaron las entidades en memoria, esto normalmente lo utilizo para los test unitarios, para pupular con datos efímeros que desaparecen al finalizar el test. Esto también es útil a la hora de publicar y testear la app en la nube. Además al implementar inyección de dependencias está listo para implementar las interfaces con otro proyecto dentro de la solución que utilice un ORM (por ej. Entity Framework) y reemplazarlo._
+
+_La lógica de negocio esta implementada en el proyecto de AppServices._
+
+_El proyecto Infrestructura se encuentran modeladas las entidades de dominio, excepciones, y las interfaces tanto de los repositorios como de los services._
 
 
 ### Web Api en Azure 🔧
 
 _la web se encuenta hosteada en Azure utilizando la version gratuita del servicio_
 
-| Servicio Mutant | https://mutantchallenge.azurewebsites.net |
-| Ubicación | Sur de Brasil | 
+- Servicio Mutant: https://mutantchallenge.azurewebsites.net 
+- Ubicación: Sur de Brasil  
 
 ## Cómo consumir la WebApi ⚙️
 
 _Dentro de la API vamos a encontrar los siguientes endpoint_
 
-| ENDPOINT  | URL | PETICION HTTP  | RESPUESTA
-| ------ | ------ | ------ | ------ | ------ |
-| Mutant | http://mutantchallenge.azurewebsites.net/api/Mutant | POST | Mutant: 200-OK / Human: 403-Forbidden / InvalidDNA: 400-BadRequest
-| Mutant | http://mutantchallenge.azurewebsites.net/api/Mutant | DELETE | 200-OK
-| Stats | http://mutantchallenge.azurewebsites.net/api/Stats | GET | JSON 
+###### Validar ADN
+```
+- ENDPOINT: Mutant
+- URL: http://mutantchallenge.azurewebsites.net/api/Mutant
+- PETICION HTTP: POST
+- RESPUESTA:  Mutant: 200-OK  Human: 403-Forbidden / InvalidDNA: 400-BadRequest
+```
+###### Borrar todos los datos analizados
+```
+- ENDPOINT: Mutant
+- URL: http://mutantchallenge.azurewebsites.net/api/Mutant
+- PETICION HTTP: DELETE
+- RESPUESTA: 200-OK 
+```
+###### Obtener las estadisticas de los datos ingresados
+```
+- ENDPOINT: Stats
+- URL: http://mutantchallenge.azurewebsites.net/api/Mutant
+- PETICION HTTP: GET
+- RESPUESTA: 200-OK JSON
+```
 
 ### Ejemplos 🔩
 
